@@ -3,8 +3,8 @@
 Build a command line program to send a letter to your legislator with Lob.
 
 ## Example
-![Screenshot Example of Input](https://ibb.co/kNXRBm)
-![Screenshot Example of Output](https://ibb.co/hgAUWm)
+![Screenshot Example of Input](https://image.ibb.co/ioDBcR/Screen_Shot_2018_01_17_at_12_33_51_AM.png)
+![Screenshot Example of Output](https://image.ibb.co/jODirm/Screen_Shot_2018_01_17_at_12_36_43_AM.png)
 
 ## Getting Started
 
