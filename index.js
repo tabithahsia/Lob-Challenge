@@ -74,7 +74,6 @@ inquirer.prompt(questions).then(answers => {
      legislatorInfo = response.data.officials[2];
    })
    .catch(error => {
-    // console.log('There is an error: ', error);
     console.log('The address you entered is not valid');
    })
    .then(() => {
@@ -87,7 +86,6 @@ inquirer.prompt(questions).then(answers => {
        address_country: 'US'
      })
      .then(address => {
-       // console.log('here is the address object', address);
        return Lob.letters.create({
          description: 'Letter to legislator',
          to: address.id,
