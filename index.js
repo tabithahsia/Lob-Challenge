@@ -7,15 +7,13 @@ const keys = require('./keys.js');
 var inquirer = require('inquirer');
 
 //LOB
-var Lob = require('lob')(keys.LOB_API_KEY);
+var Lob = require('lob')(keys.keys.LOB_API_KEY);
 
 var axios = require('axios');
 var fs = require('fs');
 var file = fs.readFileSync(__dirname + '/letter.html').toString();
 
 var myInfo, myAddress, legislatorInfo;
-
-console.log('Write a letter to your legislator!');
 
 var questions = [
   {
@@ -66,10 +64,10 @@ var questions = [
 
 inquirer.prompt(questions).then(answers => {
   myInfo = answers;
-  myAddress = answers.addressLine1 + ' ' + answers.addressLine2 + ', ' + answers.city + ', ' + answers.state + ' ' + answers.zipcode
+  myAddress = answers.addressLine1 + ' ' + answers.addressLine2 + ', ' + answers.city + ', ' + answers.state + ' ' + answers.zipcode;
 })
 .then(() => {
-  axios.get('https://www.googleapis.com/civicinfo/v2/representatives?key=' + keys.GOOGLE_API_KEY + '&address=' + myAddress)
+  axios.get('https://www.googleapis.com/civicinfo/v2/representatives?key=' + keys.keys.GOOGLE_API_KEY + '&address=' + myAddress)
    .then(function(response){
      legislatorInfo = response.data.officials[2];
    })
@@ -115,4 +113,7 @@ inquirer.prompt(questions).then(answers => {
        console.log(err);
      });
    });
+})
+.catch(err => {
+  console.log(err);
 })
